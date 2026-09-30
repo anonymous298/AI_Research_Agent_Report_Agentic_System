@@ -9,6 +9,14 @@ from agents import Runner
 from app.agents.researcher import research_agent
 from app.context import AppContext
 
+from dotenv import load_dotenv
+load_dotenv()  # must run first so LANGSMITH_* reach os.environ
+
+from agents import set_trace_processors
+from langsmith.integrations.openai_agents_sdk import OpenAIAgentsTracingProcessor
+
+set_trace_processors([OpenAIAgentsTracingProcessor()])
+
 st.set_page_config(page_title="Research Report Agent", page_icon="🔎")
 st.title("🔎 Research Report Agent")
 
