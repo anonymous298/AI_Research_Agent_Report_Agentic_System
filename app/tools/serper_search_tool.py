@@ -4,12 +4,12 @@ from app.context import AppContext
 from app.config import settings
 
 @function_tool
-async def web_search(ctx: RunContextWrapper[AppContext], query: str, num_results: int = 5) -> str:
+async def web_search(ctx: RunContextWrapper[AppContext], query: str, num_results: int = 3) -> str:
     """Search Google for current information and return the top results.
 
     Args:
         query: Short, specific search phrase.
-        num_results: How many results to return (1-10).
+        num_results: How many results to return (1-3).
     """
     res = await ctx.context.http.post(
         "https://google.serper.dev/search",
