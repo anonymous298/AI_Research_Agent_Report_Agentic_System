@@ -53,7 +53,7 @@ research_agent = Agent(
 )
 
 
-async def run_research_agent(user_query: str, search_results: list[str]):
+async def run_research_agent(user_query: str, search_results: list[str], similar_relevant_memories: str):
     """ Invoke the agent with the user_query and the search_results """
 
     try:
@@ -61,6 +61,9 @@ async def run_research_agent(user_query: str, search_results: list[str]):
         researcher_prompt = f"""
             User Query: 
             {user_query}
+
+            Relevant Memories:
+            {similar_relevant_memories}
 
             Search Results:
             {search_results}

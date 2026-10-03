@@ -60,7 +60,8 @@ if __name__ == "__main__":
 
     # Executes the Agent Loop not required yet
     # task = "Research the latest OpenAI Agents SDK features, architecture, and best practices for building production agentic systems."
-    task = "What’s the difference between async and sync programming in Python?"
+    # task = "What’s the difference between async and sync programming in Python?"
+    task = "How are humanoid robots using AI to interact with humans, and what are the main challenges preventing widespread adoption?"
 
     # print("Planner Agent Testing Runs...")
     # result = asyncio.run(Runner.run(planner_agent, task))
