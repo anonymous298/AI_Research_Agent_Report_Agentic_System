@@ -12,7 +12,7 @@ class ConversationWorkflow:
         pass
 
 
-    async def run(self, query: str) -> str:
+    async def run(self, query: str, similar_memories: str) -> str:
         ''' Run the normal LLM Call '''
 
         try:
@@ -21,13 +21,22 @@ class ConversationWorkflow:
 
             client = AsyncOpenAI()
 
+            conversation_prompt = f"""
+                User Query: 
+                {query}
+
+                Relevant Memories:
+                {similar_memories}
+            """
+
             response = await client.responses.create(
                 model=settings.model,
                 instructions=conversation_prompt,
-                input=query,
+                input=conversation_prompt,
             )
             
             if response.output_text:
+                
                 return response.output_text
 
             else:
